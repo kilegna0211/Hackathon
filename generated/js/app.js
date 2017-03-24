@@ -61341,8 +61341,8 @@ angular.module('app')
                 $scope.latitude1 = (res.data.result.webcams[i].location.latitude);
                 $scope.longitude1 = (res.data.result.webcams[i].location.longitude);
 
-                console.log(res.data.result.webcams[i].location.latitude);
-                console.log(res.data.result.webcams[i].location.longitude);
+                console.log(res.data.result.webcams[i]);
+
 
             });
         };
@@ -61579,445 +61579,658 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("anon/map.html",
-    "\n" +
     "<!-- <div class=\"row\"> -->\n" +
     "\n" +
-    "  <!-- <div id=\"map\"></div> -->\n" +
+    "<!-- <div id=\"map\"></div> -->\n" +
     "\n" +
-    "  <link rel=\"stylesheet\" href=\"/maps/documentation/javascript/demos/demos.css\">\n" +
-    "      <style>\n" +
-    "        .map-control {\n" +
-    "          background-color: #fff;\n" +
-    "          border: 1px solid #ccc;\n" +
-    "          box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);\n" +
-    "          font-family: 'Roboto','sans-serif';\n" +
-    "          margin: 10px;\n" +
-    "          /* Hide the control initially, to prevent it from appearing\n" +
+    "<link rel=\"stylesheet\" href=\"/maps/documentation/javascript/demos/demos.css\">\n" +
+    "<style>\n" +
+    "    .map-control {\n" +
+    "        background-color: #fff;\n" +
+    "        border: 1px solid #ccc;\n" +
+    "        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);\n" +
+    "        font-family: 'Roboto', 'sans-serif';\n" +
+    "        margin: 10px;\n" +
+    "        /* Hide the control initially, to prevent it from appearing\n" +
     "             before the map loads. */\n" +
-    "          display: none;\n" +
-    "        }\n" +
-    "        /* Display the control once it is inside the map. */\n" +
-    "        #map .map-control { display: block; }\n" +
+    "        display: none;\n" +
+    "    }\n" +
+    "    /* Display the control once it is inside the map. */\n" +
     "\n" +
-    "        .selector-control {\n" +
-    "          font-size: 14px;\n" +
-    "          line-height: 30px;\n" +
-    "          padding-left: 5px;\n" +
-    "          padding-right: 5px;\n" +
-    "        }\n" +
-    "      </style>\n" +
-    "    </head>\n" +
-    "    <body>\n" +
-    "      <div id=\"style-selector-control\"  class=\"map-control\">\n" +
-    "        <select id=\"style-selector\" class=\"selector-control\">\n" +
+    "    #map .map-control {\n" +
+    "        display: block;\n" +
+    "    }\n" +
+    "\n" +
+    "\n" +
+    "    .selector-control {\n" +
+    "        font-size: 14px;\n" +
+    "        line-height: 30px;\n" +
+    "        padding-left: 5px;\n" +
+    "        padding-right: 5px;\n" +
+    "    }\n" +
+    "</style>\n" +
+    "</head>\n" +
+    "\n" +
+    "<body>\n" +
+    "  <div class=\"container-fluid\">\n" +
+    "      <div class=\"row\">\n" +
+    "          <div class=\"col-sm-7\">\n" +
+    "            <div id=\"style-selector-control\" class=\"map-control\">\n" +
+    "                <select id=\"style-selector\" class=\"selector-control\">\n" +
     "          <option value=\"default\">Default</option>\n" +
     "          <option value=\"silver\">Silver</option>\n" +
     "          <option value=\"night\">Night mode</option>\n" +
     "          <option value=\"retro\" selected=\"selected\">Retro</option>\n" +
     "          <option value=\"hiding\">Hide features</option>\n" +
-    "        </select>\n" +
+    "        </select></div>\n" +
+    "        <div id=\"map\"></div>\n" +
+    "          </div>\n" +
+    "          <div class=\"col-sm-5\">\n" +
+    "            <iframe src=\"https://www.lookr.com/lookout/1196779927#action-play-lifetime\" />\n" +
+    "            <div><span class=\"title\">Andilana</span><br><span class=\"pays\">Spain</span></div>\n" +
+    "\n" +
+    "\n" +
+    "          </div>\n" +
     "      </div>\n" +
-    "      <div id=\"map\"></div>\n" +
-    "      <script>\n" +
+    "  </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "    <script>\n" +
     "        var map;\n" +
     "\n" +
     "        function initMap() {\n" +
-    "          // Create the map with no initial style specified.\n" +
-    "          // It therefore has default styling.\n" +
+    "            // Create the map with no initial style specified.\n" +
+    "            // It therefore has default styling.\n" +
     "\n" +
-    "          var myLatLng = {lat: 5.548282, lng: 73.465152 };\n" +
-    "          var map = new google.maps.Map(document.getElementById('map'), {\n" +
-    "            center: myLatLng,\n" +
-    "            scrollwheel: false,\n" +
-    "            zoom: 2\n" +
-    "          });\n" +
-    "          var marker = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: myLatLng,\n" +
-    "          });\n" +
-    "          var marker1 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 41.69701, lng:2.84466 },\n" +
-    "          });\n" +
-    "          var marker2 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 36.61306, lng:-4.501102 },\n" +
-    "          });\n" +
-    "          var marker3 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 7.828903, lng: 98.293133 },\n" +
-    "          });\n" +
-    "          var marker4 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 39.001231, lng: 1.577547 },\n" +
-    "          });\n" +
-    "          var marker5 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 39.283264, lng: 20.404752 },\n" +
-    "          });\n" +
-    "          var marker6 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: -17.929906, lng: 122.210219 },\n" +
-    "          });\n" +
-    "          var marker7 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 43.588317, lng: 15.923435 },\n" +
-    "          });\n" +
-    "          var marker8 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 25.06997, lng: 55.133096 },\n" +
-    "          });\n" +
-    "          var marker9 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 5.548282, lng: 73.465152 },\n" +
-    "          });\n" +
-    "          var marker10 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 27.736975, lng: -15.594621 },\n" +
-    "          });\n" +
-    "          var marker11 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: -4.442948, lng: 39.536578 },\n" +
-    "          });\n" +
-    "          var marker12 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 55.919921, lng: 21.050749 },\n" +
-    "          });\n" +
-    "          var marker13 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 21.297012, lng: -157.866883 },\n" +
-    "          });\n" +
-    "          var marker14 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 28.054281, lng: -16.733508 },\n" +
-    "          });\n" +
-    "          var marker15 = new google.maps.Marker({\n" +
-    "            map: map,\n" +
-    "            position: {lat: 37.984718, lng: -0.658911 },\n" +
-    "          });\n" +
-    "  \n" +
+    "            var myLatLng = {\n" +
+    "                lat: 5.548282,\n" +
+    "                lng: 73.465152\n" +
+    "            };\n" +
+    "            var map = new google.maps.Map(document.getElementById('map'), {\n" +
+    "                center: myLatLng,\n" +
+    "                scrollwheel: false,\n" +
+    "                zoom: 2\n" +
+    "            });\n" +
+    "            var marker = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: myLatLng,\n" +
+    "            });\n" +
+    "            var marker1 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 41.69701,\n" +
+    "                    lng: 2.84466\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker2 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 36.61306,\n" +
+    "                    lng: -4.501102\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker3 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 7.828903,\n" +
+    "                    lng: 98.293133\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker4 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 39.001231,\n" +
+    "                    lng: 1.577547\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker5 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 39.283264,\n" +
+    "                    lng: 20.404752\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker6 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: -17.929906,\n" +
+    "                    lng: 122.210219\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker7 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 43.588317,\n" +
+    "                    lng: 15.923435\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker8 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 25.06997,\n" +
+    "                    lng: 55.133096\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker9 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 5.548282,\n" +
+    "                    lng: 73.465152\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker10 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 27.736975,\n" +
+    "                    lng: -15.594621\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker11 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: -4.442948,\n" +
+    "                    lng: 39.536578\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker12 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 55.919921,\n" +
+    "                    lng: 21.050749\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker13 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 21.297012,\n" +
+    "                    lng: -157.866883\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker14 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 28.054281,\n" +
+    "                    lng: -16.733508\n" +
+    "                },\n" +
+    "            });\n" +
+    "            var marker15 = new google.maps.Marker({\n" +
+    "                map: map,\n" +
+    "                position: {\n" +
+    "                    lat: 37.984718,\n" +
+    "                    lng: -0.658911\n" +
+    "                },\n" +
+    "            });\n" +
     "\n" +
     "\n" +
     "\n" +
     "\n" +
     "\n" +
     "\n" +
-    "          // Add a style-selector control to the map.\n" +
-    "          var styleControl = document.getElementById('style-selector-control');\n" +
-    "          map.controls[google.maps.ControlPosition.TOP_LEFT].push(styleControl);\n" +
     "\n" +
-    "          // Set the map's style to the initial value of the selector.\n" +
-    "          var styleSelector = document.getElementById('style-selector');\n" +
-    "          map.setOptions({styles: styles[styleSelector.value]});\n" +
+    "            // Add a style-selector control to the map.\n" +
+    "            var styleControl = document.getElementById('style-selector-control');\n" +
+    "            map.controls[google.maps.ControlPosition.TOP_LEFT].push(styleControl);\n" +
     "\n" +
-    "          // Apply new JSON when the user selects a different style.\n" +
-    "          styleSelector.addEventListener('change', function() {\n" +
-    "            map.setOptions({styles: styles[styleSelector.value]});\n" +
-    "          });\n" +
+    "            // Set the map's style to the initial value of the selector.\n" +
+    "            var styleSelector = document.getElementById('style-selector');\n" +
+    "            map.setOptions({\n" +
+    "                styles: styles[styleSelector.value]\n" +
+    "            });\n" +
+    "\n" +
+    "            // Apply new JSON when the user selects a different style.\n" +
+    "            styleSelector.addEventListener('change', function() {\n" +
+    "                map.setOptions({\n" +
+    "                    styles: styles[styleSelector.value]\n" +
+    "                });\n" +
+    "            });\n" +
     "        }\n" +
     "\n" +
     "        var styles = {\n" +
-    "          default: null,\n" +
-    "          silver: [\n" +
-    "            {\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#f5f5f5'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              elementType: 'labels.icon',\n" +
-    "              stylers: [{visibility: 'off'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#616161'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              elementType: 'labels.text.stroke',\n" +
-    "              stylers: [{color: '#f5f5f5'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'administrative.land_parcel',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#bdbdbd'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'poi',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#eeeeee'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'poi',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#757575'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'poi.park',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#e5e5e5'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'poi.park',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#9e9e9e'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#ffffff'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.arterial',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#757575'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.highway',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#dadada'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.highway',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#616161'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.local',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#9e9e9e'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'transit.line',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#e5e5e5'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'transit.station',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#eeeeee'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'water',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#c9c9c9'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'water',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#9e9e9e'}]\n" +
-    "            }\n" +
-    "          ],\n" +
+    "            default: null,\n" +
+    "            silver: [{\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#f5f5f5'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    elementType: 'labels.icon',\n" +
+    "                    stylers: [{\n" +
+    "                        visibility: 'off'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#616161'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    elementType: 'labels.text.stroke',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#f5f5f5'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'administrative.land_parcel',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#bdbdbd'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'poi',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#eeeeee'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'poi',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#757575'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'poi.park',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#e5e5e5'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'poi.park',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#9e9e9e'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#ffffff'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.arterial',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#757575'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.highway',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#dadada'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.highway',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#616161'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.local',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#9e9e9e'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'transit.line',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#e5e5e5'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'transit.station',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#eeeeee'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'water',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#c9c9c9'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'water',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#9e9e9e'\n" +
+    "                    }]\n" +
+    "                }\n" +
+    "            ],\n" +
     "\n" +
-    "          night: [\n" +
-    "            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},\n" +
-    "            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},\n" +
-    "            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},\n" +
-    "            {\n" +
-    "              featureType: 'administrative.locality',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#d59563'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'poi',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#d59563'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'poi.park',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#263c3f'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'poi.park',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#6b9a76'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#38414e'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road',\n" +
-    "              elementType: 'geometry.stroke',\n" +
-    "              stylers: [{color: '#212a37'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#9ca5b3'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.highway',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#746855'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.highway',\n" +
-    "              elementType: 'geometry.stroke',\n" +
-    "              stylers: [{color: '#1f2835'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.highway',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#f3d19c'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'transit',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#2f3948'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'transit.station',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#d59563'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'water',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#17263c'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'water',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#515c6d'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'water',\n" +
-    "              elementType: 'labels.text.stroke',\n" +
-    "              stylers: [{color: '#17263c'}]\n" +
-    "            }\n" +
-    "          ],\n" +
+    "            night: [{\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#242f3e'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    elementType: 'labels.text.stroke',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#242f3e'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#746855'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'administrative.locality',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#d59563'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'poi',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#d59563'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'poi.park',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#263c3f'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'poi.park',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#6b9a76'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#38414e'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road',\n" +
+    "                    elementType: 'geometry.stroke',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#212a37'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#9ca5b3'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.highway',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#746855'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.highway',\n" +
+    "                    elementType: 'geometry.stroke',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#1f2835'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.highway',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#f3d19c'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'transit',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#2f3948'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'transit.station',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#d59563'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'water',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#17263c'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'water',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#515c6d'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'water',\n" +
+    "                    elementType: 'labels.text.stroke',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#17263c'\n" +
+    "                    }]\n" +
+    "                }\n" +
+    "            ],\n" +
     "\n" +
-    "          retro: [\n" +
-    "            {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},\n" +
-    "            {elementType: 'labels.text.fill', stylers: [{color: '#523735'}]},\n" +
-    "            {elementType: 'labels.text.stroke', stylers: [{color: '#f5f1e6'}]},\n" +
-    "            {\n" +
-    "              featureType: 'administrative',\n" +
-    "              elementType: 'geometry.stroke',\n" +
-    "              stylers: [{color: '#c9b2a6'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'administrative.land_parcel',\n" +
-    "              elementType: 'geometry.stroke',\n" +
-    "              stylers: [{color: '#dcd2be'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'administrative.land_parcel',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#ae9e90'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'landscape.natural',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#dfd2ae'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'poi',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#dfd2ae'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'poi',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#93817c'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'poi.park',\n" +
-    "              elementType: 'geometry.fill',\n" +
-    "              stylers: [{color: '#a5b076'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'poi.park',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#447530'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#f5f1e6'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.arterial',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#fdfcf8'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.highway',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#f8c967'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.highway',\n" +
-    "              elementType: 'geometry.stroke',\n" +
-    "              stylers: [{color: '#e9bc62'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.highway.controlled_access',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#e98d58'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.highway.controlled_access',\n" +
-    "              elementType: 'geometry.stroke',\n" +
-    "              stylers: [{color: '#db8555'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'road.local',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#806b63'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'transit.line',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#dfd2ae'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'transit.line',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#8f7d77'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'transit.line',\n" +
-    "              elementType: 'labels.text.stroke',\n" +
-    "              stylers: [{color: '#ebe3cd'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'transit.station',\n" +
-    "              elementType: 'geometry',\n" +
-    "              stylers: [{color: '#dfd2ae'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'water',\n" +
-    "              elementType: 'geometry.fill',\n" +
-    "              stylers: [{color: '#b9d3c2'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'water',\n" +
-    "              elementType: 'labels.text.fill',\n" +
-    "              stylers: [{color: '#92998d'}]\n" +
-    "            }\n" +
-    "          ],\n" +
+    "            retro: [{\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#ebe3cd'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#523735'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    elementType: 'labels.text.stroke',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#f5f1e6'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'administrative',\n" +
+    "                    elementType: 'geometry.stroke',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#c9b2a6'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'administrative.land_parcel',\n" +
+    "                    elementType: 'geometry.stroke',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#dcd2be'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'administrative.land_parcel',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#ae9e90'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'landscape.natural',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#dfd2ae'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'poi',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#dfd2ae'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'poi',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#93817c'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'poi.park',\n" +
+    "                    elementType: 'geometry.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#a5b076'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'poi.park',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#447530'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#f5f1e6'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.arterial',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#fdfcf8'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.highway',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#f8c967'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.highway',\n" +
+    "                    elementType: 'geometry.stroke',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#e9bc62'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.highway.controlled_access',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#e98d58'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.highway.controlled_access',\n" +
+    "                    elementType: 'geometry.stroke',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#db8555'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'road.local',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#806b63'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'transit.line',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#dfd2ae'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'transit.line',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#8f7d77'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'transit.line',\n" +
+    "                    elementType: 'labels.text.stroke',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#ebe3cd'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'transit.station',\n" +
+    "                    elementType: 'geometry',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#dfd2ae'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'water',\n" +
+    "                    elementType: 'geometry.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#b9d3c2'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'water',\n" +
+    "                    elementType: 'labels.text.fill',\n" +
+    "                    stylers: [{\n" +
+    "                        color: '#92998d'\n" +
+    "                    }]\n" +
+    "                }\n" +
+    "            ],\n" +
     "\n" +
-    "          hiding: [\n" +
-    "            {\n" +
-    "              featureType: 'poi.business',\n" +
-    "              stylers: [{visibility: 'off'}]\n" +
-    "            },\n" +
-    "            {\n" +
-    "              featureType: 'transit',\n" +
-    "              elementType: 'labels.icon',\n" +
-    "              stylers: [{visibility: 'off'}]\n" +
-    "            }\n" +
-    "          ]\n" +
+    "            hiding: [{\n" +
+    "                    featureType: 'poi.business',\n" +
+    "                    stylers: [{\n" +
+    "                        visibility: 'off'\n" +
+    "                    }]\n" +
+    "                },\n" +
+    "                {\n" +
+    "                    featureType: 'transit',\n" +
+    "                    elementType: 'labels.icon',\n" +
+    "                    stylers: [{\n" +
+    "                        visibility: 'off'\n" +
+    "                    }]\n" +
+    "                }\n" +
+    "            ]\n" +
     "        };\n" +
+    "    </script>\n" +
+    "    <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBKf4XhXyU15Zn5fH_rBBTKhCj07o4x_78&callback=initMap\" async defer></script>\n" +
+    "</body>\n" +
     "\n" +
-    "\n" +
-    "      </script>\n" +
-    "      <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBKf4XhXyU15Zn5fH_rBBTKhCj07o4x_78&callback=initMap\"\n" +
-    "          async defer></script>\n" +
-    "    </body>\n" +
-    "  </html>\n" +
+    "</html>\n" +
     "\n" +
     "\n" +
     "\n" +
@@ -62025,7 +62238,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "\n" +
-    "      <!-- <script>\n" +
+    "<!-- <script>\n" +
     "        function initMap() {\n" +
     "          var myLatLng = {lat: -25.363, lng: 131.044};\n" +
     "\n" +
@@ -62053,7 +62266,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "\n" +
-    "    <!-- <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBKf4XhXyU15Zn5fH_rBBTKhCj07o4x_78&callback=initMap\"\n" +
+    "<!-- <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBKf4XhXyU15Zn5fH_rBBTKhCj07o4x_78&callback=initMap\"\n" +
     "    async defer></script> -->\n"
   );
 
