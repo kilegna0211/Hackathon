@@ -61555,7 +61555,23 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "</div>\n" +
     "\n" +
     "<div>\n" +
-    "<a href=\"/#!/map\"></a>\n" +
+    "  <div class=\"bottom_bar\">\n" +
+    "  <div class=\"container bottom\">\n" +
+    "  <div class=\"col-md-6\">\n" +
+    "  <ul class=\"social bottom\">\n" +
+    "  <li><a target=\"_blank\" href=\"#\"><i class=\"fa fa-facebook text-white\"></i></a></li>\n" +
+    "  <li><a target=\"_blank\" href=\"#\"><i class=\"fa fa-twitter text-white\"></i></a></li>\n" +
+    "  <li><a target=\"_blank\" href=\"#\"><i class=\"fa fa-instagram text-white\"></i></a></li>\n" +
+    "  </ul></div>\n" +
+    "\n" +
+    "  <div class=\"col-md-6\">\n" +
+    "  <ul class=\"rightc bottom\">\n" +
+    "  <li><i class=\"fa fa-envelope-o\"></i> webtravel@gmail.com  </li>\n" +
+    "  <li><i class=\"fa fa-user\"></i> <a href=\"#\">Become a Partner</a></li>\n" +
+    "  </ul>\n" +
+    "  </div>\n" +
+    "  </div>\n" +
+    "  </div>\n" +
     "  </div>\n"
   );
 
