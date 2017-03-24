@@ -7380,7 +7380,9 @@ background: #30bed6; /* Old browsers */
     margin-bottom: 0px;
     float: right;
 }
-
+ul.rightc {
+  margin-right: -115px;
+}
 .rightc li {
     margin: 0px 10px;
     font-size: 13px;
@@ -7431,6 +7433,7 @@ h1 #title {
     font-size: 1.5em;
     font-weight: bold;
 }
+
 
 img.logo {
     margin-top: -12px;
