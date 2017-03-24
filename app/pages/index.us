@@ -2,17 +2,19 @@
 <html ng-app="app">
 
 <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    
+    <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
     <title>
         <%= pkg.name %>
     </title>
-
-    <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
 </head>
 
 <body>
-
+<div class="container-fluid">
     <div ui-view='navbar'></div>
     <div ui-view='content'></div>
+    </div>
 
     <script type="text/javascript" src="<%= js %>"></script>
 </body>
