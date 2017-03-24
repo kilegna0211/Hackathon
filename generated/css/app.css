@@ -7342,6 +7342,212 @@ button.close {
   }
 }
 
+.top_bar {
+    min-height: 40px;
+    /*
+background: #30bed6; /* Old browsers */
+    background: -moz-linear-gradient(left, #30bed6 0%, #38cac9 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #30bed6 0%, #38cac9 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #30bed6 0%, #38cac9 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30bed6', endColorstr='#38cac9', GradientType=1);
+    /* IE6-9 */
+}
+
+.social {
+    list-style-type: none;
+    margin-bottom: 0px;
+    float: left;
+    padding: 0px;
+    margin-left: 0px;
+}
+
+.social li {
+    float: left;
+}
+
+.social li a {
+    padding: 0 10px;
+    font-size: 13px;
+    line-height: 40px;
+    color: #FFF;
+}
+
+.rightc {
+    list-style-type: none;
+    margin-bottom: 0px;
+    float: right;
+}
+
+.rightc li {
+    margin: 0px 10px;
+    font-size: 13px;
+    float: left;
+    line-height: 40px;
+    color: #FFF;
+}
+
+.rightc li a {
+    color: #FFF;
+}
+
+.navbar-brand img {
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+
+.header_image {
+    margin-top: -70px;
+    float: left;
+}
+
+.nav.navbar-nav.navbar-right span {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    color: #1b6977;
+}
+
+.navbar-right li a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #1b6977 !important;
+}
+
+h1 #title2 {
+    color: #37C9CA;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+h1 #title {
+    color: #31BFD5;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+img.logo {
+    margin-top: -12px;
+    margin-left: -100px;
+}
+
+ul.nav.navbar-nav.navbar-right {
+    margin-right: -120px;
+}
+
+ul.nav.navbar-nav.navbar-right li a:hover {
+    background-color: #37C9CA;
+    color: white;
+}
+/*image*/
+.vue {
+    width: 100%;
+    box-shadow: 1px 1px 5px black;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+/*button more*/
+.next {
+  padding: 4px 20px;
+  background-color: #38CAC9;
+  color: #F2F2F2;
+  box-shadow: 1px 1px 1px grey;
+}
+.next:focus {
+  outline:none;
+  color: #F2F2F2;
+}
+.next:focus:active {
+  outline:none;
+  color: #F2F2F2;
+}
+.next:hover {
+  color: #F2F2F2;
+}
+
+/*location*/
+span.title {
+  font-weight: bold;
+}
+/*pays*/
+span.pays {
+  color:#38CAC9;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/*search bar*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+    background: #f2f2f2;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.searchTerm {
+    float: left;
+    width: 100%;
+    border: 1px solid #00B4CC;
+    padding: 5px;
+    height: 36px;
+    /*border-radius: 5px;*/
+    outline: none;
+    color: #9DBFAF;
+}
+
+.searchTerm:focus {
+    color: black;
+}
+
+.searchButton {
+    right: -50px;
+    width: 40px;
+    height: 36px;
+    border: 1px solid #38cac9;
+    background: #38cac9;
+    text-align: center;
+    color: #fff;
+    /*border-radius: 5px;*/
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#row1 {
+  padding-top: 50px;
+}
+#row2 {
+  padding-top: 50px;
+}
+
+
+/*Resize the wrap to see the search bar change!*/
+
+.wrap {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+}
+
+span.theme {
+  font-size: 22px;
+}
+
+
+#map {
+    display:inline-block !important;width:60%;height: 500px}
 
 
 /*# sourceMappingURL=app.css.map */

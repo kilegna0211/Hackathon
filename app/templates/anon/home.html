@@ -1,50 +1,33 @@
-<h1>Hello World</h1>
-<!DOCTYPE html>
-<html>
+</div class="row">
+<div class="col-xs-12 text-center">
+    <h1><span id="title">web</span>.<span id="title2">travel </span> come travel through a webcam</h1>
+</div>
+</div>
 
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-
-    <title>Wild Quizz</title>
-</head>
-
-<body>
-    <header>
-
-        <img class="sun" src="img/yellow_sun.svg" alt="sun">
-        <img class="cloud2" src="img/cloud2.svg" alt="cloud" width="100px" height="100px">
-        <img class "cloud1" src="img/cloud1.svg" alt="cloud" width="110px" height="110px">
-
-
-    </header>
-
-    <section class="container">
-        <p class="p1"></p>
-        <p class="p2"></p>
-        <p class="p3"></p>
-
-    </section>
-
-
-    <footer>
-        <div id="squirrel">
-            <div class="tail"></div>
-            <div class="body">
-                <div class="ears eleft"></div>
-                <div class="ears eright"></div>
-                <div class="eye left"></div>
-                <div class="eye right"></div>
-                <div class="mouth"></div>
-                <div class="foot fleft"></div>
-                <div class="foot fright"></div>
-            </div>
-            <div class="food"></div>
-        </div>
-    </footer>
+<div class="row wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="What are you looking for?">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+</div>
 
 
 
-</body>
+<div class="container">
+    <div id="row1" class="row">
+        <div class="col-sm-4"><span class="theme">Beach</span><button class="btn next pull-right" type="button" name="button" ng-click="runBeach()">More</button><a href="/#!/map"><img class="vue" src="{{beach}}"></a><span class="title">{{title1}}</span><br><span class="pays">{{country1}}</span></div>
+        <div class="col-sm-4"><span class="theme">Mountain</span><button class="btn next pull-right" type="button" name="button" ng-click="runMountain()">More</button><a href="/#!/map"><img class="vue" src="{{mountain}}"></a><span class="title">{{title2}}</span><br><span class="pays">{{country2}}</span></div>
+        <div class="col-sm-4"><span class="theme">Island</span><button class="btn next pull-right" type="button" name="button" ng-click="runIsland()">More</button><a href="/#!/map"><img class="vue" src="{{island}}"></a><span class="title">{{title3}}</span><br><span class="pays">{{country3}}</span></div>
+    </div>
+    <div id="row2" class="row">
+        <div class="col-sm-4"><span class="theme">City</span><button class="btn next pull-right" type="button" name="button" ng-click="runMeteo()">More</button><a href="/#!/map"><img class="vue" src="{{meteo}}"></a><span class="title">{{title4}}</span><br><span class="pays">{{country4}}</span></div>
+        <div class="col-sm-4"><span class="theme">Golf</span><button class="btn next pull-right" type="button" name="button" ng-click="runGolf()">More</button><a href="/#!/map"><img class="vue" src="{{golf}}"></a><span class="title">{{title5}}</span><br><span class="pays">{{country5}}</span></div>
+        <div class="col-sm-4"><span class="theme">Lake</span><button class="btn next pull-right" type="button" name="button" ng-click="runLake()">More</button><a href="/#!/map"><img class="vue" src="{{lake}}"></a><span class="title">{{title6}}</span><br><span class="pays">{{country6}}</span></div>
+    </div>
+</div>
 
-</html>
+<div>
+<a href="/#!/map"></a>
+  </div>
