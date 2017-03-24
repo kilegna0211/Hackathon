@@ -61597,9 +61597,11 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "    }\n" +
     "    /* Display the control once it is inside the map. */\n" +
     "\n" +
+    "\n" +
     "    #map .map-control {\n" +
     "        display: block;\n" +
     "    }\n" +
+    "\n" +
     "\n" +
     "\n" +
     "    .selector-control {\n" +
@@ -61612,27 +61614,31 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "</head>\n" +
     "\n" +
     "<body>\n" +
-    "  <div class=\"container-fluid\">\n" +
-    "      <div class=\"row\">\n" +
-    "          <div class=\"col-sm-7\">\n" +
-    "            <div id=\"style-selector-control\" class=\"map-control\">\n" +
-    "                <select id=\"style-selector\" class=\"selector-control\">\n" +
+    "    <div class=\"container-fluid\">\n" +
+    "        <div class=\"row\">\n" +
+    "            <div class=\"col-sm-7\">\n" +
+    "                <div id=\"style-selector-control\" class=\"map-control\">\n" +
+    "                    <select id=\"style-selector\" class=\"selector-control\">\n" +
     "          <option value=\"default\">Default</option>\n" +
     "          <option value=\"silver\">Silver</option>\n" +
     "          <option value=\"night\">Night mode</option>\n" +
     "          <option value=\"retro\" selected=\"selected\">Retro</option>\n" +
     "          <option value=\"hiding\">Hide features</option>\n" +
     "        </select></div>\n" +
-    "        <div id=\"map\"></div>\n" +
-    "          </div>\n" +
-    "          <div class=\"col-sm-5\">\n" +
-    "            <iframe src=\"https://www.lookr.com/lookout/1196779927#action-play-lifetime\" />\n" +
-    "            <div><span class=\"title\">Andilana</span><br><span class=\"pays\">Spain</span></div>\n" +
+    "                <div id=\"map\"></div>\n" +
+    "            </div>\n" +
+    "            <div class=\"col-sm-5\">\n" +
+    "                <iframe src=\"https://www.lookr.com/lookout/1196779927#action-play-lifetime\" />\n" +
+    "                <div><span class=\"title\">Andilana</span><br><span class=\"pays\">Spain</span></div>\n" +
+    "                <div>\n" +
+    "                    <h3>About this webcam</h3>\n" +
+    "                    <p>This webcam is currently assigned to Andilana Beach Resort. It was originally added on 27 juin 2014 and has been viewed 116 379 times since then. The current picture above was taken il y a 17 minutes, thereby the webcam seems to be\n" +
+    "                        currently active. So far, it was added to their personal favorites on webcams.travel by 5 people.</p>\n" +
+    "                </div>\n" +
     "\n" +
-    "\n" +
-    "          </div>\n" +
-    "      </div>\n" +
-    "  </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
     "\n" +
     "\n" +
     "\n" +
