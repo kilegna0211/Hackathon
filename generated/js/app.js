@@ -61625,17 +61625,81 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "          // Create the map with no initial style specified.\n" +
     "          // It therefore has default styling.\n" +
     "\n" +
-    "          var myLatLng = {lat: -25.363, lng:131.044 };\n" +
+    "          var myLatLng = {lat: 5.548282, lng: 73.465152 };\n" +
     "          var map = new google.maps.Map(document.getElementById('map'), {\n" +
     "            center: myLatLng,\n" +
     "            scrollwheel: false,\n" +
-    "            zoom: 4\n" +
+    "            zoom: 2\n" +
     "          });\n" +
     "          var marker = new google.maps.Marker({\n" +
     "            map: map,\n" +
     "            position: myLatLng,\n" +
-    "\n" +
     "          });\n" +
+    "          var marker1 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 41.69701, lng:2.84466 },\n" +
+    "          });\n" +
+    "          var marker2 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 36.61306, lng:-4.501102 },\n" +
+    "          });\n" +
+    "          var marker3 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 7.828903, lng: 98.293133 },\n" +
+    "          });\n" +
+    "          var marker4 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 39.001231, lng: 1.577547 },\n" +
+    "          });\n" +
+    "          var marker5 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 39.283264, lng: 20.404752 },\n" +
+    "          });\n" +
+    "          var marker6 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: -17.929906, lng: 122.210219 },\n" +
+    "          });\n" +
+    "          var marker7 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 43.588317, lng: 15.923435 },\n" +
+    "          });\n" +
+    "          var marker8 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 25.06997, lng: 55.133096 },\n" +
+    "          });\n" +
+    "          var marker9 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 5.548282, lng: 73.465152 },\n" +
+    "          });\n" +
+    "          var marker10 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 27.736975, lng: -15.594621 },\n" +
+    "          });\n" +
+    "          var marker11 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: -4.442948, lng: 39.536578 },\n" +
+    "          });\n" +
+    "          var marker12 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 55.919921, lng: 21.050749 },\n" +
+    "          });\n" +
+    "          var marker13 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 21.297012, lng: -157.866883 },\n" +
+    "          });\n" +
+    "          var marker14 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 28.054281, lng: -16.733508 },\n" +
+    "          });\n" +
+    "          var marker15 = new google.maps.Marker({\n" +
+    "            map: map,\n" +
+    "            position: {lat: 37.984718, lng: -0.658911 },\n" +
+    "          });\n" +
+    "  \n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
     "\n" +
     "\n" +
     "          // Add a style-selector control to the map.\n" +
