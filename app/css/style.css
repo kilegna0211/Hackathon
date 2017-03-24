@@ -248,3 +248,12 @@ background: #30bed6; /* Old browsers */
  ul.rightc.bottom {
    margin-right: -220px;
  }
+
+ .col-sm-7.map {
+   margin-top: 70px;
+   margin-bottom: 70px;
+ }
+ .col-sm-5.map {
+   margin-top:70px;
+   margin-bottom: 70px;
+ }

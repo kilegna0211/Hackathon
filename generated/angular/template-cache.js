@@ -109,7 +109,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "<body>\n" +
     "    <div class=\"container-fluid\">\n" +
     "        <div class=\"row\">\n" +
-    "            <div class=\"col-sm-7\">\n" +
+    "            <div class=\"col-sm-7 map\">\n" +
     "                <div id=\"style-selector-control\" class=\"map-control\">\n" +
     "                    <select id=\"style-selector\" class=\"selector-control\">\n" +
     "          <option value=\"default\">Default</option>\n" +
@@ -120,7 +120,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "        </select></div>\n" +
     "                <div id=\"map\"></div>\n" +
     "            </div>\n" +
-    "            <div class=\"col-sm-5\">\n" +
+    "            <div class=\"col-sm-5 map\">\n" +
     "                <iframe src=\"https://www.lookr.com/lookout/1196779927#action-play-lifetime\" />\n" +
     "                <div><span class=\"title\">Andilana</span><br><span class=\"pays\">Spain</span></div>\n" +
     "                <div>\n" +
@@ -133,7 +133,25 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "    </div>\n" +
     "\n" +
+    "    <div>\n" +
+    "      <div class=\"bottom_bar\">\n" +
+    "      <div class=\"container bottom\">\n" +
+    "      <div class=\"col-md-6\">\n" +
+    "      <ul class=\"social bottom\">\n" +
+    "      <li><a target=\"_blank\" href=\"#\"><i class=\"fa fa-facebook text-white\"></i></a></li>\n" +
+    "      <li><a target=\"_blank\" href=\"#\"><i class=\"fa fa-twitter text-white\"></i></a></li>\n" +
+    "      <li><a target=\"_blank\" href=\"#\"><i class=\"fa fa-instagram text-white\"></i></a></li>\n" +
+    "      </ul></div>\n" +
     "\n" +
+    "      <div class=\"col-md-6\">\n" +
+    "      <ul class=\"rightc bottom\">\n" +
+    "      <li><i class=\"fa fa-envelope-o\"></i> webtravel@gmail.com  </li>\n" +
+    "      <li><i class=\"fa fa-user\"></i> <a href=\"#\">Become a Partner</a></li>\n" +
+    "      </ul>\n" +
+    "      </div>\n" +
+    "      </div>\n" +
+    "      </div>\n" +
+    "      </div>\n" +
     "\n" +
     "\n" +
     "\n" +
