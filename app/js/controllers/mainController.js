@@ -12,8 +12,8 @@ angular.module('app')
                 $scope.latitude1 = (res.data.result.webcams[i].location.latitude);
                 $scope.longitude1 = (res.data.result.webcams[i].location.longitude);
 
-                console.log(res.data.result.webcams[i].location.latitude);
-                console.log(res.data.result.webcams[i].location.longitude);
+                console.log(res.data.result.webcams[i]);
+
 
             });
         };
