@@ -3,8 +3,10 @@
 
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    
+
     <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
     <title>
         <%= pkg.name %>
     </title>
